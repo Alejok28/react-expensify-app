@@ -4,7 +4,8 @@ import { Route, Redirect } from 'react-router-dom';
 
 export const PublicRoute = ({ 
   isAuthenticated, 
-  component: Component, ...rest 
+  component: Component, 
+  ...rest 
 }) => (
   <Route {...rest} component={(props) => (
     isAuthenticated ? (
@@ -15,8 +16,8 @@ export const PublicRoute = ({
   )}/>
 );
 
-const mapDispatchToProps = (state) => ({
+const mapStateToProps = (state) => ({
   isAuthenticated: !!state.auth.uid
 })
 
-export default connect(mapDispatchToProps)(PublicRoute);
+export default connect(mapStateToProps)(PublicRoute);

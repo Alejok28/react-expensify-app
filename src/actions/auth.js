@@ -6,17 +6,17 @@ export const login = (uid) => ({
 });
 
 export const startLogin = () => {
-  return (dispatch) => {
-    return firebase.auth().signInWithPopup(googleAuthProvider)
-  }
+  return () => {
+    return firebase.auth().signInWithPopup(googleAuthProvider);
+  };
 };
 
 export const logout = () => ({
   type: 'LOGOUT'
-})
+});
 
 export const startLogout = () => {
-  return (dispatch) => {
+  return () => {
     return firebase.auth().signOut();
-  }
-}
+  };
+};
